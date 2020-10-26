@@ -1,3 +1,12 @@
+# Configuração via docker por enquanto:
+
+```sh
+    sudo docker run --publish 8080:3000 --detach --name pi2 ground-station:1.0
+    Abrir localhost:8080 no terminal
+    sudo docker stop pi2
+```
+
+
 # ground-station
 
 This application is generated using [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) with the
@@ -70,6 +79,7 @@ npm run lint:fix
 ```sh
 npm test
 ```
+
 
 ## What's next
 
