@@ -3,8 +3,6 @@ services:
   loopback:
     build: .
     ports:
-      - "3000:8080"
-  qemu:
-    image: "qemu:aarch64"
+      - "8080:3000"
   rethinkdb:
-    image: "generalmeow:rethinkdb"
+    image: "rethinkdb"
