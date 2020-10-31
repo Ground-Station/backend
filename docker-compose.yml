@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  loopback:
+    build: .
+    ports:
+      - "3000:8080"
+  qemu:
+    image: "qemu:aarch64"
+  rethinkdb:
+    image: "generalmeow:rethinkdb"

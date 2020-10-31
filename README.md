@@ -1,6 +1,7 @@
 # Configuração via docker por enquanto:
 
 ```sh
+    sudo apt-get update
     docker build -t ground-station:1.0 .
     sudo docker run --publish 8080:3000 --detach --name pi2 ground-station:1.0
 ```
