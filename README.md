@@ -1,12 +1,10 @@
 # Configuração via docker por enquanto:
 
 ```sh
-    sudo apt-get update
-    docker build -t ground-station:1.0 .
-    sudo docker run --publish 8080:3000 --detach --name pi2 ground-station:1.0
+    docker-compose up --build
 ```
 
-Abrir localhost:8080 no terminal
+Abrir localhost:8080 
 
 ```sh   
 sudo docker stop pi2
