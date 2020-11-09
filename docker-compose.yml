@@ -1,8 +1,15 @@
 version: "3.8"
 services:
   loopback:
-    build: .
+    build:
+        context: .
+        dockerfile: enviroments/loopback/Dockerfile
     ports:
       - "3000:3000"
+
   rethinkdb:
-    image: "rethinkdb"
+    build:
+      context: .
+      dockerfile: enviroments/rethinkdb/Dockerfile
+    ports:
+      - "8080:8080"
