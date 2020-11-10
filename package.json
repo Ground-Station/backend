@@ -54,6 +54,7 @@
     "@loopback/rest-crud": "^0.8.16",
     "@loopback/rest-explorer": "^3.0.2",
     "@loopback/service-proxy": "^3.0.2",
+    "loopback-connector-rethinkdb": "^1.0.13",
     "rethinkdb": "^2.4.2",
     "tslib": "^2.0.0"
   },

@@ -1,8 +1,16 @@
 version: "3.8"
 services:
+  rethinkdb:
+    image: rethinkdb
+    ports:
+     - "28015"
+    command: rethinkdb --bind all 
   loopback:
     build: .
     ports:
       - "3000:3000"
-  rethinkdb:
-    image: "rethinkdb"
+  # rethinkdb:
+  #   image: "rethinkdb"
+  #   ports: 
+  #     - "8080:8080"
+  
