@@ -8,6 +8,7 @@
       "connector": "rethinkdb",
       "database": "rethinkdb",
       "port": "28015",
-      "host": "database"
+      "host": "rethinkdb"
+     
     }
 }
