@@ -2,8 +2,10 @@ import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
 
 const config = {
-  name: 'rethinkdb',
-  connector: 'rethinkdb'
+  name: "rethinkdb",
+  connector: "rethinkdb",
+  port: "28015",
+  host: "rethinkdb"
 };
 
 // Observe application's life cycle to disconnect the datasource when
