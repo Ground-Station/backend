@@ -1,6 +1,6 @@
 import {DefaultCrudRepository} from '@loopback/repository';
 import {Foguete, FogueteRelations} from '../models';
-import {RethinkdbDataSource} from '../datasources';
+import {MongoDsDataSource} from '../datasources';
 import {inject} from '@loopback/core';
 
 export class FogueteRepository extends DefaultCrudRepository<
@@ -9,7 +9,7 @@ export class FogueteRepository extends DefaultCrudRepository<
   FogueteRelations
 > {
   constructor(
-    @inject('datasources.rethinkdb') dataSource: RethinkdbDataSource,
+    @inject('datasources.mongoDS') dataSource: MongoDsDataSource,
   ) {
     super(Foguete, dataSource);
   }

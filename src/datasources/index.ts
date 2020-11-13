@@ -1,1 +1,1 @@
-export * from './rethinkdb.datasource';
+export * from './mongo-ds.datasource';

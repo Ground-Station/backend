@@ -14,13 +14,15 @@ export class Foguete extends Entity {
 
   @property({
     type: 'number',
+    required: true,
   })
-  pesoVazio?: number;
+  pesoVazio: number;
 
   @property({
     type: 'number',
+    required: true,
   })
-  pesoCheio?: number;
+  pesoCheio: number;
 
   @property({
     type: 'number',

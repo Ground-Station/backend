@@ -1,7 +1,7 @@
 {
   "name": "ground-station",
   "version": "0.0.1",
-  "description": "GS is a powerful tool for reporting and monitoring a rocket flight  ",
+  "description": "pi2",
   "keywords": [
     "loopback-application",
     "loopback"
@@ -21,7 +21,7 @@
     "prettier:fix": "npm run prettier:cli -- --write",
     "eslint": "lb-eslint --report-unused-disable-directives .",
     "eslint:fix": "npm run eslint -- --fix",
-    "pretest": "npm run clean && npm run build",
+    "pretest": "npm run rebuild",
     "test": "lb-mocha --allow-console-logs \"dist/__tests__\"",
     "posttest": "npm run lint",
     "test:dev": "lb-mocha --allow-console-logs dist/__tests__/**/*.js && npm run posttest",
@@ -31,14 +31,15 @@
     "migrate": "node ./dist/migrate",
     "preopenapi-spec": "npm run build",
     "openapi-spec": "node ./dist/openapi-spec",
-    "prestart": "npm run build",
+    "rebuild": "npm run clean && npm run build",
+    "prestart": "npm run rebuild",
     "start": "node -r source-map-support/register .",
     "clean": "lb-clean dist *.tsbuildinfo .eslintcache"
   },
   "repository": {
     "type": "git"
   },
-  "author": "",
+  "author": "isaque <isaquealvesdl@gmail.com>",
   "license": "",
   "files": [
     "README.md",
@@ -47,24 +48,22 @@
     "!*/__tests__"
   ],
   "dependencies": {
-    "@loopback/boot": "^3.0.2",
-    "@loopback/core": "^2.11.0",
-    "@loopback/repository": "^3.1.0",
-    "@loopback/rest": "^8.0.0",
-    "@loopback/rest-crud": "^0.8.16",
-    "@loopback/rest-explorer": "^3.0.2",
-    "@loopback/service-proxy": "^3.0.2",
-    "loopback-connector-rethinkdb": "^1.0.13",
-    "rethinkdb": "^2.4.2",
+    "@loopback/boot": "^3.1.0",
+    "@loopback/core": "^2.12.0",
+    "@loopback/repository": "^3.2.0",
+    "@loopback/rest": "^9.0.0",
+    "@loopback/rest-explorer": "^3.0.3",
+    "@loopback/service-proxy": "^3.0.3",
+    "loopback-connector-mongodb": "^5.4.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
-    "@loopback/build": "^6.2.5",
+    "@loopback/build": "^6.2.6",
     "source-map-support": "^0.5.19",
-    "@loopback/testlab": "^3.2.7",
-    "@types/node": "^10.17.37",
-    "@loopback/eslint-config": "^10.0.1",
-    "eslint": "^7.10.0",
-    "typescript": "~4.0.3"
+    "@loopback/testlab": "^3.2.8",
+    "@types/node": "^10.17.44",
+    "@loopback/eslint-config": "^10.0.2",
+    "eslint": "^7.12.1",
+    "typescript": "~4.0.5"
   }
 }
