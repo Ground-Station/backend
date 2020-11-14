@@ -1,10 +1,6 @@
 import {Entity, model, property} from '@loopback/repository';
 
-@model({
-  settings: {
-    rethinkdb: {schema: 'rethinkdb', table: 'Foguete'},
-  },
-})
+@model({})
 export class Foguete extends Entity {
   @property({
     type: 'string',
