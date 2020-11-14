@@ -1,16 +1,3 @@
-# Configuração via docker por enquanto:
-
-```sh
-    docker-compose up --build
-```
-
-Abrir localhost:8080 
-
-```sh   
-sudo docker stop pi2
-```
-
-
 # ground-station
 
 This application is generated using [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) with the
@@ -45,13 +32,13 @@ Open http://127.0.0.1:3000 in your browser.
 
 To incrementally build the project:
 
-```
+```sh
 npm run build
 ```
 
 To force a full build by cleaning up cached artifacts:
 
-```
+```sh
 npm run clean
 npm run build
 ```
@@ -83,7 +70,6 @@ npm run lint:fix
 ```sh
 npm test
 ```
-
 
 ## What's next
 

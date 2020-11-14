@@ -2,10 +2,15 @@ import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
 
 const config = {
-  name: "rethinkdb",
-  connector: "rethinkdb",
-  port: "28015",
-  host: "rethinkdb"
+  name: 'mongoDS',
+  connector: 'mongodb',
+  url: '',
+  host: 'localhost',
+  port: 27017,
+  user: '',
+  password: '',
+  database: 'guidestationdb',
+  useNewUrlParser: true
 };
 
 // Observe application's life cycle to disconnect the datasource when
@@ -13,13 +18,13 @@ const config = {
 // gracefully. The `stop()` method is inherited from `juggler.DataSource`.
 // Learn more at https://loopback.io/doc/en/lb4/Life-cycle.html
 @lifeCycleObserver('datasource')
-export class RethinkdbDataSource extends juggler.DataSource
+export class MongoDsDataSource extends juggler.DataSource
   implements LifeCycleObserver {
-  static dataSourceName = 'rethinkdb';
+  static dataSourceName = 'mongoDS';
   static readonly defaultConfig = config;
 
   constructor(
-    @inject('datasources.config.rethinkdb', {optional: true})
+    @inject('datasources.config.mongoDS', {optional: true})
     dsConfig: object = config,
   ) {
     super(dsConfig);
