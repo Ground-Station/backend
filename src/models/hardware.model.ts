@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Comando} from './comando.model';
+import {Possui} from './possui.model';
 
 @model()
 export class Hardware extends Entity {
@@ -27,6 +29,8 @@ export class Hardware extends Entity {
   })
   portaSerial: string;
 
+  @hasMany(() => Comando, {through: {model: () => Possui}})
+  hardwareComandos: Comando[];
 
   constructor(data?: Partial<Hardware>) {
     super(data);
