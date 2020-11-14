@@ -4,12 +4,9 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'mongoDS',
   connector: 'mongodb',
-  url: '',
-  host: 'localhost',
+  host: 'mongo',
   port: 27017,
-  user: '',
-  password: '',
-  database: 'guidestationdb',
+  database: 'mongo',
   useNewUrlParser: true
 };
 
