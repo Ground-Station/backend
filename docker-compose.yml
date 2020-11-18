@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+  mongo:
+    image: mongo
+    ports:
+     - "27017:27017"
+    networks: 
+      - rocket
+    
+
+  loopback:
+    build: .
+    ports:
+      - "3000:3000"
+    networks: 
+      - rocket
+    volumes: 
+      - .:/home/node/app
+  
+      
+networks:
+  rocket:
+    external: true 
+
+  #0138f358f303f823a842cb06d9b5b68200ca055630ac1959bc669b97a462903a
