@@ -4,3 +4,8 @@ export * from './hardware.model';
 export * from './comando.model';
 export * from './possui.model';
 export * from './soma.model';
+export * from './velocidade.model';
+export * from './altitude.model';
+export * from './peso.model';
+export * from './pressao.model';
+export * from './gps.model';

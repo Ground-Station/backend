@@ -4,3 +4,8 @@ export * from './hardware.repository';
 export * from './comando.repository';
 export * from './possui.repository';
 export * from './soma.repository';
+export * from './velocidade.repository';
+export * from './altitude.repository';
+export * from './peso.repository';
+export * from './pressao.repository';
+export * from './gps.repository';
