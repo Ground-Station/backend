@@ -1,0 +1,7 @@
+GET http://127.0.0.1:3000/calculaVelocidade/2000000000/2012-02-08 09:30:26 HTTP/1.1
+# content-type: application/json
+
+# {
+#     "num1": 2,
+#     "num2": 2
+# }

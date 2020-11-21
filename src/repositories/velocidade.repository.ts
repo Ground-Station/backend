@@ -2,9 +2,6 @@ import {DefaultCrudRepository} from '@loopback/repository';
 import {Velocidade, VelocidadeRelations} from '../models';
 import {MongoDsDataSource} from '../datasources';
 import {inject} from '@loopback/core';
-import * as moment from 'moment'
-
-
 
 
 export class VelocidadeRepository extends DefaultCrudRepository<
@@ -19,11 +16,21 @@ export class VelocidadeRepository extends DefaultCrudRepository<
     super(Velocidade, dataSource);
   }
 
-  public calculaVelocidade(altitude_inical: number, altitude_final: number, tempo_inicial: Date, tempo_final: Date) {
+  public calculaVelocidade(altitude_final: number, tempo_inicial: Date) {
     
-    let inicial = tempo_inicial.fn.toString()
-    let time_variation =  moment.duration(tempo_final.diff())
-      return (altitude_final - altitude_inical) / 
+    const moment = require('moment');
+    const math = require('mathjs');
+    
+    let final = moment('2013-02-08 09:30:26')
+    let inicial = moment(tempo_inicial)
+    let intervalo = moment.duration(final.diff(inicial))
+
+    let scope = {
+      altitude: altitude_final,
+      tempo: intervalo.asSeconds()
+    }
+
+    return math.evaluate('altitude/tempo',scope)
   }
 
 
