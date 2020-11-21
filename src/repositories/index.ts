@@ -9,3 +9,4 @@ export * from './altitude.repository';
 export * from './peso.repository';
 export * from './pressao.repository';
 export * from './gps.repository';
+export * from './serial.repository';
