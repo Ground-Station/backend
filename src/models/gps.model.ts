@@ -15,6 +15,12 @@ export class Gps extends Entity {
   longitude: number;
 
   @property({
+    type: 'number',
+    required: true,
+  })
+  tempo: number;
+
+  @property({
     type: 'string',
     id: true,
     generated: true,

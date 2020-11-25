@@ -119,7 +119,7 @@ export class FogueteController {
     },
   })
   async findById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @param.filter(Foguete, {exclude: 'where'}) filter?: FilterExcludingWhere<Foguete>
   ): Promise<Foguete> {
     return this.fogueteRepository.findById(id, filter);
@@ -133,7 +133,7 @@ export class FogueteController {
     },
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -154,7 +154,7 @@ export class FogueteController {
     },
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() foguete: Foguete,
   ): Promise<void> {
     await this.fogueteRepository.replaceById(id, foguete);
@@ -167,7 +167,7 @@ export class FogueteController {
       },
     },
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.fogueteRepository.deleteById(id);
   }
 }
