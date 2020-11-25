@@ -59,7 +59,9 @@
     "loopback-connector-mongodb": "^5.4.0",
     "mathjs": "^8.0.1",
     "moment": "^2.29.1",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "@loopback/cron": "^0.3.4",
+    "n-readlines": "^1.0.1"
   },
   "devDependencies": {
     "@loopback/build": "^6.2.6",
