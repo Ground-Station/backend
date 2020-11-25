@@ -10,3 +10,4 @@ export * from './peso.model';
 export * from './pressao.model';
 export * from './gps.model';
 export * from './serial.model';
+export * from './temperatura.model';

@@ -11,3 +11,4 @@ export * from './peso.controller';
 export * from './pressao.controller';
 export * from './gps.controller';
 export * from './serial.controller';
+export * from './temperatura.controller';
