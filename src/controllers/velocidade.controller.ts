@@ -7,6 +7,7 @@ import {
   getModelSchemaRef,
 
 } from '@loopback/rest';
+import moment from 'moment';
 import {Velocidade} from '../models';
 import {VelocidadeRepository} from '../repositories';
 
@@ -38,7 +39,13 @@ export class VelocidadeController {
 
     let resultado : number;
 
-    resultado = await this.velocidadeRepository.calculaVelocidade(altitude,tempo)
+    resultado = await this.velocidadeRepository.calculaVelocidade(altitude,tempo);
+
+    const velocidade = new Velocidade();
+    velocidade.velocidade = resultado;
+    velocidade.tempo = tempo;
+
+    await this.velocidadeRepository.create(velocidade);
 
     return resultado
   }

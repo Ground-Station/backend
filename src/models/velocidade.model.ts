@@ -9,10 +9,10 @@ export class Velocidade extends Entity {
   velocidade: number;
 
   @property({
-    type: 'number',
+    type: 'date',
     required: true,
   })
-  tempo: number;
+  tempo: Date;
 
   @property({
     type: 'number',
