@@ -1,8 +1,16 @@
 import {CronJob} from '@loopback/cron';
 import {GroundStationApplication} from '../application';
-import {PressaoRepository} from '../repositories/pressao.repository'
-import {Pressao} from '../models/pressao.model'
 import {MongoDsDataSource} from '../datasources';
+import {Altitude} from '../models/altitude.model';
+import {Gps} from '../models/gps.model';
+import {Pressao} from '../models/pressao.model';
+import {Velocidade} from '../models/velocidade.model';
+import {AltitudeRepository} from '../repositories/altitude.repository';
+import {GpsRepository} from '../repositories/gps.repository';
+import {PressaoRepository} from '../repositories/pressao.repository';
+import {VelocidadeRepository} from '../repositories/velocidade.repository';
+// import {Temperatura} from '../models/temperatura.model';
+// import {TemperaturaRepository} from '../repositories/temperatura.repository';
 
 const fs = require('fs');
 const lineByLine = require('n-readlines');
@@ -21,7 +29,7 @@ var time;
 
 // Create an cron job
 export const job = new CronJob({
-  cronTime: '*/1 * * * * *', // Every one second
+  cronTime: '*/5 * * * * *', // Every one second
   onTick: () => {
     line = liner.next().toString();
     splittedLine = line.split(",", 6);
@@ -38,20 +46,27 @@ export const job = new CronJob({
 function postGps(latitudeValue, longitudeValue, time) {
   var latitude: number = +latitudeValue;
   var longitude: number = +longitudeValue;
-  var gpsJson = {"latitude": latitude, "longitude": longitude, "tempo": time};
-  console.log(gpsJson);
+  const gps = new Gps();
+  const datasources = new MongoDsDataSource()
+  const gpsRepository = new GpsRepository(datasources)
+  gps.latitude = latitude;
+  gps.longitude = longitude;
+  gps.tempo = time;
+  gpsRepository.create(gps);
 }
 
 function postTemperature(value, time) {
   var temperature: number = +value;
-  var temperatureJson = {"temperatura": temperature, "tempo": time};
-  console.log(temperatureJson);
+  // const temperatura = new Temperatura();
+  // const datasources = new MongoDsDataSource()
+  // const temperaturaRepository = new TemperaturaRepository(datasources)
+  // temperatura.temperatura = temperature;
+  // temperatura.tempo = time;
+  // temperaturaRepository.create(temperatura);
 }
 
 function postPressure(value, time) {
   var pressure: number = +value;
-  var pressureJson = {"pressao": pressure, "tempo": time};
-  console.log(pressureJson);
   const pressao = new Pressao();
   const datasources = new MongoDsDataSource()
   const pressaoRepository = new PressaoRepository(datasources)
@@ -61,11 +76,19 @@ function postPressure(value, time) {
 }
 function postHeight(value, time) {
   var height: number = +value;
-  var heightJson = {"altitude": height, "tempo": time};
-  console.log(heightJson);
+  const altitude = new Altitude();
+  const datasources = new MongoDsDataSource()
+  const altitudeRepository = new AltitudeRepository(datasources)
+  altitude.altitude = height;
+  altitude.tempo = time;
+  altitudeRepository.create(altitude);
 }
 function postVelocity(value, time) {
   var velocity: number = +value;
-  var velocityJson = {"velocidade": velocity, "tempo": time};
-  console.log(velocityJson);
+  const velocidade = new Velocidade();
+  const datasources = new MongoDsDataSource()
+  const velocidadeRepository = new VelocidadeRepository(datasources)
+  velocidade.velocidade = velocity;
+  velocidade.tempo = time;
+  velocidadeRepository.create(velocidade);
 }
