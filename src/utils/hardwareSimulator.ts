@@ -1,5 +1,8 @@
 import {CronJob} from '@loopback/cron';
 import {GroundStationApplication} from '../application';
+import {PressaoRepository} from '../repositories/pressao.repository'
+import {Pressao} from '../models/pressao.model'
+import {MongoDsDataSource} from '../datasources';
 
 const fs = require('fs');
 const lineByLine = require('n-readlines');
@@ -49,10 +52,12 @@ function postPressure(value, time) {
   var pressure: number = +value;
   var pressureJson = {"pressao": pressure, "tempo": time};
   console.log(pressureJson);
-  // const pressao = new Pressao();
-  // pressao.pressao = pressure;
-  // pressao.tempo = time;
-  // this.repositoryPressao.create(pressao);
+  const pressao = new Pressao();
+  const datasources = new MongoDsDataSource()
+  const pressaoRepository = new PressaoRepository(datasources)
+  pressao.pressao = pressure;
+  pressao.tempo = time;
+  pressaoRepository.create(pressao);
 }
 function postHeight(value, time) {
   var height: number = +value;
