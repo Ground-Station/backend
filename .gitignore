@@ -64,5 +64,4 @@ typings/
 # Cache used by TypeScript's incremental build
 *.tsbuildinfo
 
-# HTTP Client
-src/test.http
+src/datasources/rethinkdb.datasource.json
