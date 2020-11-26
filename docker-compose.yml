@@ -2,22 +2,26 @@ version: "3.3"
 services:
   mongo:
     image: mongo
+    ulimits:
+      nofile:
+        soft: 20000
+        hard: 40000
     ports:
      - "27017:27017"
-    networks: 
+    networks:
       - rocket
-    
+
 
   loopback:
     build: .
     ports:
       - "3000:3000"
-    networks: 
+    networks:
       - rocket
-  
-      
+
+
 networks:
   rocket:
-    external: true 
+    external: true
 
   #0138f358f303f823a842cb06d9b5b68200ca055630ac1959bc669b97a462903a
